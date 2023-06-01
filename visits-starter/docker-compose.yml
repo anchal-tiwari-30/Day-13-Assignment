@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  redis-server:
+    image: 'redis'
+  service:
+    build:
+      context: ./
+    restart: 'no'
+    ports:
+      - 8080:8081
+  service-2:
+    build:
+      context: ./
+    restart: always
+    ports:
+      - 8070:8081
+  service-3:
+    build:
+      context: ./
+    restart: unless-stopped
+    ports:
+      - 8060:8081
+  service-4:
+    build:
+      context: ./
+    restart: on-failure
+    ports:
+      - 8050:8081
